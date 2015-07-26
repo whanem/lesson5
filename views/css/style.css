@@ -1,0 +1,18 @@
+.msg_error{
+     color: #6f6f6f;
+     font: 600 20px sans;
+}
+.article{
+     border-bottom: 1px solid black;
+     padding-bottom: 1px;
+}
+body{
+    width: 800px;
+}
+.article_title a{
+    text-decoration: none;
+    font: 17px sans-serif;
+}
+.article_title{
+    font: 600 17px sans-serif;
+}
