@@ -1,7 +1,6 @@
 <?php
 
 class View
-    /*implements Iterator*/
 {
     protected $data = [];
 
@@ -19,28 +18,7 @@ class View
         foreach($this->data as $key => $value){
             $$key = $value;
         }
+
         include $path . $template;
     }
-
-/*
-    public $dasa = ['Dalamalama', 'Taparasaka', 'Keruticuco', 'Beliminimimga', 'Eremekelinito'];
-    public $pos = 0;
-
-    public function current(){
-        return $this->dasa[$this->pos];
-    }
-    public function key(){
-        return $this->pos;
-    }
-    public function next(){
-        ++$this->pos;
-    }
-    public function rewind(){
-        $this->pos = 0;
-    }
-    public function valid(){
-        return isset($this->dasa[$this->pos]);
-
-    }
-*/
 }

@@ -10,10 +10,12 @@
     <h2>Добавить статью</h2>
     <p class="msgErr"><?php echo $msgErr;?></p>
     <form action="../administrator/index.php?ctrl=News&act=Add" method="POST">
-        <p>Название статьи:</p>
-        <textarea name="title" id="text" cols="90" rows="2"><?php echo $title?></textarea>
-        <p>Содержимое статьи:</p>
-        <textarea name="article" id="" cols="90" rows="20"><?php echo $article?></textarea>
+        <label for="title">
+            <p>Название статьи:</p></label>
+        <textarea name="title" id="title" cols="90" rows="2"><?php echo $title?></textarea>
+        <label for="art">
+            <p>Содержимое статьи:</p></label>
+        <textarea name="article" id="art" cols="90" rows="20"><?php echo $article?></textarea>
         <p><input type="submit"/></p>
     </form>
 </body>

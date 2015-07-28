@@ -1,17 +1,14 @@
 <?php
 
+/**
+ * Class AdminNews
+ *
+ * @property $id;
+ * @property $title;
+ * @property $article;
+ */
 class AdminNews
-    extends News
+    extends AbstractDBModel
 {
     public static $table = 'News';
-
-    public static function Add($title, $article)
-    {
-        $DB = new DBadmin;
-        $query = 'INSERT INTO '. static::$table .'
-                    (title, article)
-                    VALUES
-                    ("' . $title . '", "' . $article . '")';
-        $DB->sqlUpdateInsertDelete($query);
-    }
 }

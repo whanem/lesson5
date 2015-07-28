@@ -1,24 +1,38 @@
 <?php
+
 class DB{
-    function __construct(){
+    private $DB;
+    private $className = 'stdClass';
+
+    public function __construct()
+    {
         $login = 'root';
         $password = '';
-        $server = 'localhost';
+        $host = 'localhost';
         $db_name = 'Site_News';
 
-        mysql_connect($server, $login, $password);
-        mysql_select_db($db_name);
+        $this->DB = new PDO('mysql:dbname=' . $db_name . ';host=' . $host , $login, $password);
     }
 
-    public function sql_query($query, $class = 'stdClass'){
-        $data_DB = [];
-        $sql_query = mysql_query($query);
-
-        while( false !== $q = mysql_fetch_object($sql_query, $class) ){
-            $data_DB[] = $q;
-        }
-        return $data_DB;
+    public function setClassName($className)
+    {
+        $this->className = $className;
+    }
+    public function query($sql, $params = [])
+    {
+        $DB = $this->DB->prepare($sql);
+        $DB->execute($params);
+        return $DB->fetchAll(PDO::FETCH_CLASS, $this->className);
     }
 
+    public function execute($sql, $params = [])
+    {
+        $DB = $this->DB->prepare($sql);
+        $DB->execute($params);
+    }
 
+    public function lastInsertId()
+    {
+        return $this->DB->lastInsertId();
+    }
 }
